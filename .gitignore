@@ -1,0 +1,8 @@
+# .gitignore for .dotfiles repository
+node_modules/
+venv/
+.venv/
+*.log
+*.swp
+.DS_Store
+.secrets
