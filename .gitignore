@@ -9,3 +9,6 @@ venv/
 .bashrc
 .zshrc
 .p10k.zsh
+.bashrc
+.zshrc
+.p10k.zsh
