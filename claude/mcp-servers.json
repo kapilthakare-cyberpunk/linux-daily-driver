@@ -1,0 +1,19 @@
+{
+  "skill-seeker": {
+    "command": "/home/kapilt/Skill_Seekers/venv/bin/python3",
+    "args": [
+      "-m",
+      "skill_seekers.mcp.server_fastmcp"
+    ]
+  },
+  "playwright": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+      "@playwright/mcp@latest",
+      "--cdp-endpoint",
+      "http://127.0.0.1:9222"
+    ],
+    "env": {}
+  }
+}

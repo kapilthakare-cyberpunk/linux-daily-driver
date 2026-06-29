@@ -58,10 +58,12 @@ fi
 echo ""
 echo "[4/5] Configuring Claude Code MCP..."
 if command -v claude &>/dev/null; then
-    # Remove old playwright config if exists
     claude mcp remove playwright 2>/dev/null || true
     claude mcp add --scope user playwright -- npx @playwright/mcp@latest --cdp-endpoint http://127.0.0.1:9222 2>/dev/null || true
     echo "  Claude Code Playwright MCP configured (user scope)"
+    if [ -f "$DOTFILES_DIR/claude/mcp-servers.json" ]; then
+        echo "  MCP server configs saved at: claude/mcp-servers.json"
+    fi
 else
     echo "  claude CLI not found, skipping"
 fi
