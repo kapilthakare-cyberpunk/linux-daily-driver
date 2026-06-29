@@ -6,3 +6,6 @@ venv/
 *.swp
 .DS_Store
 .secrets
+.bashrc
+.zshrc
+.p10k.zsh
