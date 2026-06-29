@@ -1,0 +1,13 @@
+[Unit]
+Description=Google Chrome with Remote Debugging (port 9222)
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/rm -f %h/.chrome-debug/SingletonLock %h/.chrome-debug/SingletonSocket %h/.chrome-debug/SingletonCookie
+ExecStart=/usr/bin/google-chrome --remote-debugging-port=9222 --user-data-dir=%h/.chrome-debug
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

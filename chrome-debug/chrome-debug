@@ -1,0 +1,19 @@
+#!/bin/bash
+# Chrome with remote debugging enabled for Playwright MCP / AI agents
+# Persists profile in ~/.chrome-debug
+
+DEBUG_PORT=9222
+DATA_DIR="$HOME/.chrome-debug"
+
+# Kill any existing Chrome instance
+killall -q chrome google-chrome 2>/dev/null
+sleep 1
+
+# Clean stale locks
+rm -f "$DATA_DIR/SingletonLock" "$DATA_DIR/SingletonSocket" "$DATA_DIR/SingletonCookie" 2>/dev/null
+
+# Launch Chrome with remote debugging
+exec google-chrome \
+  --remote-debugging-port=$DEBUG_PORT \
+  --user-data-dir="$DATA_DIR" \
+  "$@"
